@@ -74,6 +74,7 @@ button { font: inherit; color: inherit; }
   outline: 2px solid var(--gold-2); outline-offset: 2px;
 }
 
+@media (max-width: 1040px) { .bar-mark span { display: none; } }
 @media (max-width: 720px) {
   .bar { flex-wrap: wrap; gap: 8px 12px; }
   .bar-mark span { display: none; }

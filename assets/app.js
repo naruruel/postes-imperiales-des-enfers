@@ -313,6 +313,7 @@
   function closeSheet() {
     var d = $("#sheet");
     if (d.open) d.close();
+    document.body.classList.remove("locked");
   }
 
   function renderSheet() {
@@ -396,6 +397,7 @@
     var d = $("#sheet");
     $(".sheet-close").addEventListener("click", closeSheet);
     d.addEventListener("close", function () { document.body.classList.remove("locked"); });
+    d.addEventListener("cancel", function () { document.body.classList.remove("locked"); });
     d.addEventListener("click", function (e) { if (e.target === d) closeSheet(); });
     $(".sheet-prev").addEventListener("click", function () { if (state.stamp > 0) { state.stamp--; renderSheet(); } });
     $(".sheet-next").addEventListener("click", function () { if (state.stamp < C.length - 1) { state.stamp++; renderSheet(); } });
