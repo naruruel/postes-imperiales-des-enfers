@@ -178,7 +178,7 @@
 
   function stampName(s) { return state.lang === "ja" ? s.name.ja : s.name.latin; }
   function faceShort(s) { return s.face == null ? t("noFace") : t("value")(s.face); }
-  function imgPath(s, ed) { return "images/specimen/" + s.file + "_" + ed + ".jpg"; }
+  function imgPath(s, ed, thumb) { return "images/specimen/" + (thumb ? "thumb/" : "") + s.file + "_" + ed + ".jpg"; }
 
   /* ---------- language ---------- */
   function pickLang() {
@@ -250,7 +250,7 @@
   }
 
   /* ---------- catalogue ---------- */
-  function plate(s, ed, big) {
+  function plate(s, ed, big, thumb) {
     var wrap = el("div", "stamp-art" + (big ? " big" : ""));
     var img = new Image();
     img.alt = stampName(s) + " — " + t(ED_LABEL[ed]) + " (" + t("specimen") + ")";
@@ -258,7 +258,8 @@
     img.decoding = "async";
     img.onload = function () { wrap.classList.add("has-img"); };
     img.onerror = function () { img.remove(); };
-    img.src = imgPath(s, ed);
+    img.width = 1200; img.height = 900;
+    img.src = imgPath(s, ed, thumb);
     var ph = el("div", "placeholder");
     ph.innerHTML =
       '<span class="ph-no">' + esc(s.no) + "</span>" +
@@ -275,9 +276,7 @@
     var b = el("button", "stamp-btn");
     b.type = "button";
     b.setAttribute("aria-label", "No. " + s.no + " " + stampName(s));
-    var perf = el("div", "perf");
-    perf.appendChild(plate(s, "mint"));
-    b.appendChild(perf);
+    b.appendChild(plate(s, "mint", false, true));
     var cap = el("div", "stamp-cap");
     cap.innerHTML =
       '<span class="cap-no">No. ' + esc(s.no) + "</span>" +
@@ -297,8 +296,13 @@
   }
 
   /* ---------- detail sheet ---------- */
+  function preload(s) {
+    EDITIONS.forEach(function (ed) { var im = new Image(); im.src = imgPath(s, ed); });
+  }
+
   function openSheet(i) {
     state.stamp = i;
+    preload(C[i]);
     state.edition = "mint";
     renderSheet();
     var d = $("#sheet");
@@ -313,6 +317,7 @@
 
   function renderSheet() {
     var s = C[state.stamp];
+    preload(s);
     var L = T[state.lang];
 
     var tabs = $(".ed-tabs");
@@ -328,12 +333,10 @@
 
     var frame = $(".plate-frame");
     frame.innerHTML = "";
-    var perf = el("div", "perf perf-big" + (state.edition === "original" ? " no-perf" : ""));
-    perf.appendChild(plate(s, state.edition, true));
-    frame.appendChild(perf);
+    frame.appendChild(plate(s, state.edition, true));
     $(".plate-cap").textContent = L[ED_LABEL[state.edition] + "Note"] + "　" + L.specimen.toUpperCase();
 
-    $(".sheet-no").textContent = "No. " + s.no + "　·　" + (s.cls === "regular" ? L.regular : L.cinderella) + (s.portrait ? "（" + L.portrait + "）" : "");
+    $(".sheet-no").textContent = "No. " + s.no + "　·　" + (s.cls === "regular" ? L.regular : L.cinderella) + (s.portrait ? (state.lang === "ja" ? "（" + L.portrait + "）" : " (" + L.portrait + ")") : "");
     $("#sheetTitle").textContent = stampName(s);
     $(".sheet-sub").textContent = state.lang === "ja" ? s.name.latin : s.name.ja;
 
@@ -361,20 +364,8 @@
   }
 
   /* ---------- postmarks ---------- */
-  function postmarkSVG(p) {
-    var id = "pmpath-" + p.key;
-    var label = (T.fr.pm[p.key]).toUpperCase() + " · POSTES IMPÉRIALES DES ENFERS ·";
-    var center = p.special
-      ? '<g class="pm-wheel"><circle r="30"/><path d="M0-24 L21 12 L-21 12 Z M0 24 L-21 -12 L21 -12 Z"/></g>'
-      : (p.key === "new" ? '<circle r="26" class="pm-moon-new"/>' : '<circle r="26" class="pm-moon-full"/>');
-    return '<svg viewBox="0 0 200 200" aria-hidden="true">' +
-      '<defs><path id="' + id + '" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>' +
-      '<circle cx="100" cy="100" r="96" class="pm-ring"/>' +
-      '<circle cx="100" cy="100" r="68" class="pm-ring thin"/>' +
-      '<text class="pm-text"><textPath href="#' + id + '" textLength="484" lengthAdjust="spacing">' + label + "</textPath></text>" +
-      '<g transform="translate(100 100)">' + center + "</g>" +
-      '<text x="100" y="104" class="pm-date">' + p.date + "</text>" +
-      "</svg>";
+  function postmarkImg(p) {
+    return '<img src="images/postmarks/' + p.key + '.jpg" width="520" height="520" loading="lazy" alt="' + esc(T[state.lang].pm[p.key]) + ' ' + p.date + '">';
   }
 
   function renderPostmarks() {
@@ -385,7 +376,7 @@
       var assigned = C.filter(function (s) { return s.postmark === p.key; }).map(function (s) { return s.no; }).join(" · ");
       var c = el("div", "pm pm-" + p.key + (p.special ? " is-special" : ""));
       c.innerHTML =
-        '<div class="pm-seal">' + postmarkSVG(p) + "</div>" +
+        '<div class="pm-seal">' + postmarkImg(p) + "</div>" +
         '<h4 class="pm-name">' + esc(L.pm[p.key]) + (p.special ? '<small>' + esc(L.special) + "</small>" : "") + "</h4>" +
         '<p class="pm-fr">' + esc(L.pmFr[p.key]) + "</p>" +
         '<p class="pm-line">' + esc(L.pmIssue[p.issue]) + " · " + p.date + "</p>" +

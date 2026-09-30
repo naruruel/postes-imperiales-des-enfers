@@ -12,11 +12,13 @@ OpenSea コレクション：https://opensea.io/collection/postes-imperiales-des
 | `assets/catalogue.js` | 切手目録 12 種（解説・額面・消印・透かし紋様） |
 | `assets/app.js` | 言語切替・章送り・目録の詳細表示 |
 | `assets/style.css` | 意匠 |
-| `images/specimen/` | 見本刷り（SPECIMEN）図版 |
+| `images/specimen/` | 見本刷り（SPECIMEN）図版 36点（`thumb/` は目録一覧用の縮小版） |
+| `images/postmarks/` | 消印 4種 |
+| `images/emblem.png` | 地獄帝国郵政局 紋章 |
 
-## 見本刷り図版の置き方
+## 見本刷り図版の名前
 
-`images/specimen/` に次の名前で置くと、仮枠が自動的に図版へ差し替わります。
+図版を差し替えるときは、同じ名前で上書きしてください（一覧の縮小版 `thumb/{通し番号}_mint.jpg` も合わせて）。
 
 ```
 {通し番号}_{版}.jpg
