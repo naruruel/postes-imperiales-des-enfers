@@ -3,6 +3,10 @@
 
   var OPENSEA = "https://opensea.io/collection/postes-imperiales-des-enfers";
   var CONTRACT = "https://opensea.io/item/ethereum/0x534345e8ecc874cf8986260e0caf4602e58b6187/";
+  /* OpenSea links switch. false = every OpenSea button shows "Under Construction" and does not link.
+     Set back to true when the collection is restored on OpenSea. */
+  var OPENSEA_OPEN = false;
+  var UNDER_CONSTRUCTION = "Under Construction";
   var LANGS = ["ja", "en", "fr", "de"];
 
   /* ---------- UI strings ---------- */
@@ -169,6 +173,22 @@
   var state = { lang: "ja", chapter: 0, stamp: 0, edition: "original" };
 
   /* ---------- helpers ---------- */
+  function closeLink(a) {
+    if (!a) return;
+    a.removeAttribute("href");
+    a.removeAttribute("target");
+    a.classList.add("is-closed");
+    a.setAttribute("aria-disabled", "true");
+    a.textContent = UNDER_CONSTRUCTION;
+  }
+  function applyOpenSeaState() {
+    if (OPENSEA_OPEN) return;
+    closeLink($("#osCollection"));
+    $$(".foot-links a").forEach(function (a) {
+      closeLink(a);
+      a.textContent = "OpenSea — " + UNDER_CONSTRUCTION;
+    });
+  }
   function $(s, r) { return (r || document).querySelector(s); }
   function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
   function el(tag, cls, html) {
@@ -208,6 +228,7 @@
     renderHistory();
     renderCatalogue();
     renderPostmarks();
+    applyOpenSeaState();
     if ($("#sheet").open) renderSheet();
   }
 
@@ -379,6 +400,7 @@
     var os = $(".sheet-os");
     os.textContent = L.viewEdition(L[ED_LABEL[state.edition]]);
     os.href = s.token && s.token[state.edition] ? CONTRACT + s.token[state.edition] : OPENSEA;
+    if (!OPENSEA_OPEN) closeLink(os);
 
     var prev = $(".sheet-prev"), next = $(".sheet-next");
     prev.textContent = L.prevStamp; next.textContent = L.nextStamp;

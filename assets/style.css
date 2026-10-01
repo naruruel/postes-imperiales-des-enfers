@@ -406,3 +406,14 @@ body[data-lang="en"] .sheet-sub, body[data-lang="fr"] .sheet-sub, body[data-lang
 }
 .sheet-nav button:hover:not(:disabled) { color: var(--gold-2); }
 .sheet-nav button:disabled { opacity: .25; cursor: default; }
+
+/* OpenSea links paused — "Under Construction" */
+.btn.is-closed, .foot-links a.is-closed {
+  cursor: default; pointer-events: none;
+  color: var(--text-dim) !important;
+  background: repeating-linear-gradient(-45deg, rgba(194,154,78,.10) 0 8px, transparent 8px 16px) !important;
+  border: 1px dashed var(--gold) !important;
+  text-decoration: none !important;
+  letter-spacing: .14em;
+}
+.foot-links a.is-closed { padding: 2px 12px; font-size: 14px; }
