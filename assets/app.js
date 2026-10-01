@@ -2,6 +2,7 @@
   "use strict";
 
   var OPENSEA = "https://opensea.io/collection/postes-imperiales-des-enfers";
+  var CONTRACT = "https://opensea.io/item/ethereum/0x534345e8ecc874cf8986260e0caf4602e58b6187/";
   var LANGS = ["ja", "en", "fr", "de"];
 
   /* ---------- UI strings ---------- */
@@ -34,6 +35,7 @@
       special: "特印", specimen: "見本刷り",
       specimenPending: "見本刷り 準備中",
       viewOnOpensea: "本切手をOpenSeaで見る",
+      viewEdition: function (ed) { return "この" + ed + "をOpenSeaで見る"; },
       prevStamp: "← 前の切手", nextStamp: "次の切手 →",
       pm: { new: "新月", full: "満月", solar: "日蝕", lunar: "月蝕" },
       pmFr: { new: "Nouvelle Lune", full: "Pleine Lune", solar: "Éclipse Solaire", lunar: "Éclipse Lunaire" },
@@ -69,6 +71,7 @@
       special: "Special Postmark", specimen: "Specimen",
       specimenPending: "Specimen in preparation",
       viewOnOpensea: "See this stamp on OpenSea",
+      viewEdition: function (ed) { return "See the " + ed + " on OpenSea"; },
       prevStamp: "← Previous stamp", nextStamp: "Next stamp →",
       pm: { new: "New Moon", full: "Full Moon", solar: "Solar Eclipse", lunar: "Lunar Eclipse" },
       pmFr: { new: "Nouvelle Lune", full: "Pleine Lune", solar: "Éclipse Solaire", lunar: "Éclipse Lunaire" },
@@ -104,6 +107,7 @@
       special: "Oblitération spéciale", specimen: "Specimen",
       specimenPending: "Specimen en préparation",
       viewOnOpensea: "Voir ce timbre sur OpenSea",
+      viewEdition: function (ed) { return (/^[ÉEŒO]/.test(ed) ? "Voir l\u2019" : "Voir la ") + ed + " sur OpenSea"; },
       prevStamp: "← Timbre précédent", nextStamp: "Timbre suivant →",
       pm: { new: "Nouvelle Lune", full: "Pleine Lune", solar: "Éclipse Solaire", lunar: "Éclipse Lunaire" },
       pmFr: { new: "Nouvelle Lune", full: "Pleine Lune", solar: "Éclipse Solaire", lunar: "Éclipse Lunaire" },
@@ -139,6 +143,7 @@
       special: "Sonderstempel", specimen: "Specimen",
       specimenPending: "Specimen in Vorbereitung",
       viewOnOpensea: "Diese Marke auf OpenSea ansehen",
+      viewEdition: function (ed) { return (ed === "Originalwerk" ? "Das " : "Die ") + ed.replace("Gestempelte", "gestempelte") + " auf OpenSea ansehen"; },
       prevStamp: "← Vorige Marke", nextStamp: "Nächste Marke →",
       pm: { new: "Neumond", full: "Vollmond", solar: "Sonnenfinsternis", lunar: "Mondfinsternis" },
       pmFr: { new: "Nouvelle Lune", full: "Pleine Lune", solar: "Éclipse Solaire", lunar: "Éclipse Lunaire" },
@@ -355,8 +360,8 @@
       "<div><dt>" + esc(L.watermark) + "</dt><dd>" + esc(s.watermark[state.lang]) + "</dd></div>";
 
     var os = $(".sheet-os");
-    os.textContent = L.viewOnOpensea;
-    os.href = s.opensea || OPENSEA;
+    os.textContent = L.viewEdition(L[ED_LABEL[state.edition]]);
+    os.href = s.token && s.token[state.edition] ? CONTRACT + s.token[state.edition] : OPENSEA;
 
     var prev = $(".sheet-prev"), next = $(".sheet-next");
     prev.textContent = L.prevStamp; next.textContent = L.nextStamp;

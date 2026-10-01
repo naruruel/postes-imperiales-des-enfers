@@ -1,4 +1,5 @@
-/* 目録解説 — source: 地獄帝国郵政局_目録解説 (2026-09-10). Grimalkin's German text relocated from 006 to B. */
+/* 目録解説 — source: 地獄帝国郵政局_目録解説 (2026-09-10). Grimalkin's German text relocated from 006 to B.
+   OpenSea token IDs verified one by one against the item pages (2026-10-01). Token 57 is an unnamed gap. */
 window.PIE_CATALOGUE = [
  {
   "no": "001",
@@ -36,6 +37,11 @@ window.PIE_CATALOGUE = [
     "Ein Hirsch mit mächtigem Geweih, die Schwingen entfaltet wie die eines Engels — dies ist Furfur, Graf der Hölle. Er liebt die Lüge und gebietet nach Belieben über Donner und Blitz, doch wenn man ihn darum bittet, vermag er von der Liebe zu sprechen, und es heißt, er nehme bisweilen die Gestalt eines Engels an. In diesem Entwurf überlagern sich die beiden Naturen — das Tier und der Engel — zu einer einzigen Gestalt, die still in der Tiefe eines dunklen Waldes steht, wo ein Wasserfall hinter ihr herabstürzt.",
     "Die Erstausgabe bewahrt die Stille dieses Waldes und dieses Wasserfalls unverändert. Die gestempelte Ausgabe trägt den Stempel des Neumondes — denn einem Wesen, das der Lüge und der Finsternis angehört, ist eine lichtlose Nacht die angemessenste Stunde."
    ]
+  },
+  "token": {
+   "original": 1,
+   "mint": 41,
+   "used": 53
   }
  },
  {
@@ -74,6 +80,11 @@ window.PIE_CATALOGUE = [
     "Eine gepanzerte Krähe — dies ist Caym, Großpräsident, der Dreiundfünfzigste in der Rangordnung der Hölle. Man sagt, er verstehe die Sprache der Vögel und der Tiere, selbst das Flüstern des Wassers, und er sehe klar in Vergangenheit wie Zukunft. In diesem Entwurf ruht jener weitblickende Blick über einer Stadtlandschaft, die an eine nahe Zukunft gemahnt, und die Krähe schaut still auf einen Wald aus Wolkenkratzern hinab. Die Rüstung, die er trägt, offenbart das Wesen des Großpräsidenten — eines, das Weisheit und Macht in sich vereint.",
     "Die Erstausgabe bewahrt unverändert die Stille dieses Augenblicks über der Stadt. Die gestempelte Ausgabe trägt den Stempel des Vollmondes — denn die Gabe der Voraussicht gehört ebenfalls einem Wesen an, das dem wachsenden Licht zugewandt ist."
    ]
+  },
+  "token": {
+   "original": 12,
+   "mint": 42,
+   "used": 54
   }
  },
  {
@@ -112,6 +123,11 @@ window.PIE_CATALOGUE = [
     "Eine gepanzerte Gestalt mit dem Haupt einer Eule, das Schwert in der Hand, begleitet von einem Wolf — dies ist Andras, Großmarkgraf, der Dreiundsechzigste in der Rangordnung der Hölle. Er ergötzt sich an Zwietracht und Hader und soll im gefährlichen Wissen unterweisen, wie man seine Widersacher niederstreckt. In diesem Entwurf nimmt jenes Wissen die Gestalt des Schwertes an, das er trägt, während er an der Seite des Wolfes in einer stillen, nächtlichen Gasse steht.",
     "Die Erstausgabe bewahrt unverändert die Stille dieser Gasse. Die gestempelte Ausgabe trägt den Stempel des Neumondes — denn das Wissen, das die Widersacher niederstreckt, gehört der Finsternis an."
    ]
+  },
+  "token": {
+   "original": 13,
+   "mint": 43,
+   "used": 55
   }
  },
  {
@@ -150,6 +166,11 @@ window.PIE_CATALOGUE = [
     "Ein Wolf mit den Schwingen eines Greifen jagt durch ein flammendes Industriegebiet — dies ist Marchosias, Markgraf der Hölle. Er behauptet, einst den Rang einer Herrschaft innegehabt zu haben, und hegt die Hoffnung, eines Tages auf seinen früheren Thron zurückzukehren. In diesem Entwurf stürmt der Wolf mit Wildheit durch das Innere einer brennenden Fabrik, sein ungezähmtes Wesen verwoben mit der Sehnsucht nach einem für immer verlorenen, erhabenen Rang.",
     "Die Erstausgabe bewahrt unverändert diese flammende Szenerie. Die gestempelte Ausgabe trägt den Stempel des Neumondes — denn einem so ungezähmten und lodernden Wesen gebührt keine Stunde mehr als eine lichtlose Nacht."
    ]
+  },
+  "token": {
+   "original": 14,
+   "mint": 44,
+   "used": 56
   }
  },
  {
@@ -188,6 +209,11 @@ window.PIE_CATALOGUE = [
     "Ein geometrischer fünfzackiger Stern, schwebend in einem Wald, der in Finsternis versunken ist — dies ist Carabia, der den doppelten Rang eines Königs und eines Grafen in sich trägt. Man sagt, er kenne alle Tugenden der Pflanzen und die verborgenen Kräfte der Edelsteine, und in diesem Entwurf wird jenes Wissen selbst zur reinen Abstraktion, kristallisiert zu einem einzigen Stern, der in der Tiefe des Waldes leuchtet.",
     "Die Erstausgabe bewahrt unverändert die Stille dieses Waldes und dieses Sterns. Die gestempelte Ausgabe trägt den Stempel des Vollmondes — denn wer über die Tugenden und Kräfte aller Dinge gebietet, gehört einem Wesen an, das Licht hervorbringt."
    ]
+  },
+  "token": {
+   "original": 15,
+   "mint": 45,
+   "used": 58
   }
  },
  {
@@ -226,6 +252,11 @@ window.PIE_CATALOGUE = [
     "Ein Dackel mit ausgebreiteten Schwingen, fliegend über einer Stadt — dies ist Caacrinolaas, Großpräsident. Man sagt, er besitze die unheilvolle Macht, Menschen unsichtbar zu machen, ja sie bisweilen zum Mord anzustiften, doch in diesem Entwurf verbirgt sich jenes furchtbare Wesen still im liebenswürdigen Bild eines Hundes.",
     "Die Erstausgabe bewahrt unverändert diesen Augenblick des Fluges. Die gestempelte Ausgabe trägt den Stempel des Neumondes — denn ein Wesen, das die Menschen den Blicken entzieht und zum Mord anstiftet, wurzelt tief in der Finsternis."
    ]
+  },
+  "token": {
+   "original": 16,
+   "mint": 46,
+   "used": 59
   }
  },
  {
@@ -264,6 +295,11 @@ window.PIE_CATALOGUE = [
     "Ein Mann mit dem Haupt eines Raben, die Baupläne in der Hand, den Bau leitend — dies ist Malphas, Großpräsident. Er versteht sich meisterhaft darauf, Festungen zu errichten und die des Feindes zu schleifen, und man sagt, er finde stets die besten Handwerksmeister. In diesem Entwurf ist er dargestellt als ein moderner Baumeister — oder vielleicht als Pionieroffizier —, hinter ihm ragen die Schlote einer Fabrikanlage empor.",
     "Die Erstausgabe bewahrt unverändert die kalte Gelassenheit dieses Baumeisters — oder Pionieroffiziers — inmitten des Baustellenlärms. Die gestempelte Ausgabe trägt den Stempel des Vollmondes — denn wer die besten Handwerksmeister findet und dem Haus seinen Schutz gewährt, gehört einem Wesen an, das Licht hervorbringt."
    ]
+  },
+  "token": {
+   "original": 17,
+   "mint": 47,
+   "used": 60
   }
  },
  {
@@ -302,6 +338,11 @@ window.PIE_CATALOGUE = [
     "Ein Wesen mit dem Antlitz eines Löwen, auf fünf Beinen stehend, ein Pentagramm schwebt hinter ihm — dies ist Buer, Präsident der Hölle, Befehlshaber über fünfzig Legionen. Man sagt, er lehre die Moralphilosophie, die Naturphilosophie, die Logik sowie die Heilkräfte der Kräuter. In diesem Entwurf blickt er auf eine Straße der Stadt hinab, die Schatten der Vorübergehenden breiten sich zu seinen Füßen aus.",
     "Die Erstausgabe bewahrt unverändert die Stille dieser Straße und dieses Sterns. Die gestempelte Ausgabe trägt den Stempel des Vollmondes — denn wer Philosophie und die Kunst des Heilens lehrt, gehört einem Wesen an, das Licht hervorbringt."
    ]
+  },
+  "token": {
+   "original": 18,
+   "mint": 48,
+   "used": 61
   }
  },
  {
@@ -340,6 +381,11 @@ window.PIE_CATALOGUE = [
     "Eine Gestalt mit dem Haupt einer Eule, die mächtigen Schwingen entfaltet, ein Baukran und ein Gebäude im Werden ragen hinter ihr auf — dies ist Stolas, großer Fürst der Hölle. Wenn er Menschengestalt annimmt, so lehre er, heißt es, den Lauf der Gestirne und die verborgenen Tugenden der Edelsteine. In diesem Entwurf steht er inmitten einer Stadt, die noch im Entstehen begriffen ist, als wache er über einen Ort, der seine endgültige Gestalt noch nicht gefunden hat. Sein Rang ist der höchste unter den Dämonen der Rangordnung, und darum trägt er den höchsten Nennwert: sechsundsiebzig Meika.",
     "Die Erstausgabe bewahrt unverändert diese Szenerie des Bauens. Die gestempelte Ausgabe ist unter allen zwölf die einzige, die den Sondergedenkstempel trägt — die Sonnenfinsternis. Als Höchster unter den Fürsten, als Meister der Sternkunde, kann allein die seltene Stunde, da die Sonne sich hinter dem Mond verhüllt, als würdiger Beweis gelten."
    ]
+  },
+  "token": {
+   "original": 19,
+   "mint": 49,
+   "used": 62
   }
  },
  {
@@ -378,6 +424,11 @@ window.PIE_CATALOGUE = [
     "Eine hagere Kröte in einen Mantel gehüllt, neben ihr lauert etwas mit knöchernen, flügelartigen Gebilden — dies ist Crapaud, ein Vertrauter im Dienste des Sabbats. Obwohl er keinen Rang in der Rangordnung bekleidet, soll er von den Hexen geliebt worden sein; doch in diesem Entwurf drängt sich eine unheimliche Erscheinung aus Knochen und Finsternis in den Vordergrund, weit mehr als jeglicher Liebreiz. Ohne Nennwert steht er abseits der offiziellen Ordnung, und nur durch die Fremdartigkeit seiner eigenen Gestalt wird von ihm gesprochen.",
     "Die Erstausgabe bewahrt unverändert diese Stille aus Knochen und Finsternis. Die gestempelte Ausgabe trägt den Stempel des Vollmondes — denn ein Wesen, das den Hexen dient und von ihnen geliebt wird, findet seine Ruhe unter dem Licht."
    ]
+  },
+  "token": {
+   "original": 20,
+   "mint": 50,
+   "used": 63
   }
  },
  {
@@ -416,6 +467,11 @@ window.PIE_CATALOGUE = [
     "Eine schwarze Katze, den Hexenhut aufgesetzt und ein Tuch um die Schultern geschlagen — dies ist Grimalkin, ein Vertrauter, der sich beim Sabbat zeigt. Sein wahres Wesen bleibt im Ungewissen, und da seine Art ganz der Verwandlung und der Täuschung verschrieben ist, wird er außerhalb jeder Rangordnung gehalten. In diesem Entwurf steht er still vor dem Hintergrund einer Stube, die an eine Schenke gemahnt.",
     "Die Erstausgabe bewahrt unverändert die Stille dieses Inneren. Die gestempelte Ausgabe trägt den Stempel des Neumondes — denn eine Art, die der Verwandlung und der Täuschung verschrieben ist, wurzelt tief in der Finsternis."
    ]
+  },
+  "token": {
+   "original": 21,
+   "mint": 51,
+   "used": 64
   }
  },
  {
@@ -454,6 +510,11 @@ window.PIE_CATALOGUE = [
     "Eine Frau mit flügelförmigem Haarschmuck, in fließendes Weiß gekleidet — dies ist Mycale, Zauberin aus Thessalien. Ihr Name ist eingeschrieben in die Legende jener Frau, die den Mond selbst vom Himmel herabzog; obwohl kein Dämon, hat allein ihre Tat ihr den Platz in diesem Katalog eingebracht. In diesem Entwurf ist ein matt leuchtender Kreis nahe ihrer Hand gezeichnet, der an den Mond selbst gemahnt, herabgezogen zur Erde. Hinter ihr erstrecken sich eine Fabrikanlage und ein nächtliches Meer, die in der Stille das Gewicht der Legende tragen.",
     "Die Erstausgabe bewahrt unverändert die Stille dieses nächtlichen Meeres und dieses Leuchtens. Die gestempelte Ausgabe ist unter allen zwölf die einzige, die den Sondergedenkstempel trägt — die Mondfinsternis. Da ihre Legende unmittelbar mit dem Herabziehen des Mondes verbunden ist, kann allein die seltene Stunde, da der Mond sich im Schatten der Erde verhüllt, als würdiger Beweis gelten."
    ]
+  },
+  "token": {
+   "original": 22,
+   "mint": 52,
+   "used": 65
   }
  }
 ];
