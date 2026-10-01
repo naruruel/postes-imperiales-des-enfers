@@ -10,7 +10,7 @@
       bureauShort: "地獄帝国郵政局",
       navHistory: "沿革", navCatalogue: "目録", navPostmarks: "消印",
       eyebrow: "公式目録 · 冥界頒布版",
-      lede: "此岸から彼岸へ。生者の祈りを冥界へ届ける、ただひとつの郵政機関。",
+      lede: ["此岸から彼岸へ", "生者の祈りを冥界へ届ける", "ただひとつの郵政機関"],
       seriesLabel: "シリーズ", series: "欧州今昔百鬼拾遺",
       yearsLabel: "発行", years: "原版 1818年 ／ 復刻 2026年",
       issuesLabel: "発行点数", issues: "12種 × 3版 ＝ 36点",
@@ -45,7 +45,7 @@
       bureauShort: "Imperial Posts of the Underworld",
       navHistory: "History", navCatalogue: "Catalogue", navPostmarks: "Postmarks",
       eyebrow: "Official Catalogue · Edition for the Underworld",
-      lede: "From this shore to the far shore — the one postal authority that carries the prayers of the living into the underworld.",
+      lede: ["From this shore to the far shore", "Carrying the prayers of the living into the underworld", "The one and only postal authority"],
       seriesLabel: "Series", series: "Europe's Hundred Demons, Old and New",
       yearsLabel: "Issued", years: "Original 1818 / Reissue 2026",
       issuesLabel: "Pieces", issues: "12 designs × 3 editions = 36 pieces",
@@ -80,7 +80,7 @@
       bureauShort: "Postes Impériales des Enfers",
       navHistory: "Historique", navCatalogue: "Catalogue", navPostmarks: "Oblitérations",
       eyebrow: "Catalogue officiel · Édition pour les Enfers",
-      lede: "De cette rive à l'autre rive — la seule administration postale qui porte aux Enfers la prière des vivants.",
+      lede: ["De cette rive à l'autre rive", "Portant aux Enfers la prière des vivants", "L'unique administration postale"],
       seriesLabel: "Série", series: "Cent démons d'Europe, d'hier et d'aujourd'hui",
       yearsLabel: "Émission", years: "Originale 1818 / Réédition 2026",
       issuesLabel: "Pièces", issues: "12 motifs × 3 éditions = 36 pièces",
@@ -115,7 +115,7 @@
       bureauShort: "Kaiserliche Post der Unterwelt",
       navHistory: "Geschichte", navCatalogue: "Katalog", navPostmarks: "Poststempel",
       eyebrow: "Amtlicher Katalog · Ausgabe für die Unterwelt",
-      lede: "Von diesem Ufer zum anderen — die einzige Postbehörde, die die Gebete der Lebenden in die Unterwelt trägt.",
+      lede: ["Vom Diesseits ins Jenseits", "Die Gebete der Lebenden bis in die Unterwelt getragen", "Die einzige Postbehörde ihrer Art"],
       seriesLabel: "Serie", series: "Hundert Dämonen Europas, einst und jetzt",
       yearsLabel: "Ausgabe", years: "Original 1818 / Neuauflage 2026",
       issuesLabel: "Stückzahl", issues: "12 Motive × 3 Ausgaben = 36 Stücke",
@@ -186,8 +186,7 @@
     if (q && LANGS.indexOf(q) > -1) return q;
     var saved = store("pie-lang");
     if (saved && LANGS.indexOf(saved) > -1) return saved;
-    var nav = (navigator.language || "ja").slice(0, 2).toLowerCase();
-    return LANGS.indexOf(nav) > -1 ? nav : "en";
+    return "en";
   }
 
   function setLang(l) {
@@ -199,6 +198,7 @@
     $$("[data-i18n]").forEach(function (n) {
       var v = T[l][n.dataset.i18n];
       if (typeof v === "string") n.textContent = v;
+      else if (Array.isArray(v)) n.innerHTML = v.map(function (x) { return "<span>" + esc(x) + "</span>"; }).join("");
     });
     renderHistory();
     renderCatalogue();
@@ -376,6 +376,12 @@
     POSTMARKS.forEach(function (p) {
       var assigned = C.filter(function (s) { return s.postmark === p.key; }).map(function (s) { return s.no; }).join(" · ");
       var c = el("div", "pm pm-" + p.key + (p.special ? " is-special" : ""));
+      c.tabIndex = 0;
+      c.addEventListener("click", function () {
+        var on = c.classList.contains("is-held");
+        $$(".pm.is-held").forEach(function (x) { x.classList.remove("is-held"); });
+        if (!on) c.classList.add("is-held");
+      });
       c.innerHTML =
         '<div class="pm-seal">' + postmarkImg(p) + "</div>" +
         '<h4 class="pm-name">' + esc(L.pm[p.key]) + (p.special ? '<small>' + esc(L.special) + "</small>" : "") + "</h4>" +
