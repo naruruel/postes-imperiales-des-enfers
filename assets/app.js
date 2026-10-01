@@ -305,13 +305,29 @@
     EDITIONS.forEach(function (ed) { var im = new Image(); im.src = imgPath(s, ed); });
   }
 
-  function openSheet(i) {
+  /* each stamp and edition has its own address, e.g.  …/#009-used  */
+  function setHash(h) {
+    try { history.replaceState(null, "", location.pathname + location.search + (h || "")); } catch (e) {}
+  }
+
+  function openFromHash() {
+    var m = /^#([0-9]{3}|[A-Ca-c])(?:-(original|mint|used))?$/.exec(location.hash);
+    if (!m) return false;
+    var no = m[1].toUpperCase();
+    for (var i = 0; i < C.length; i++) {
+      if (C[i].no === no) { openSheet(i, m[2] || "mint"); return true; }
+    }
+    return false;
+  }
+
+  function openSheet(i, ed) {
     state.stamp = i;
     preload(C[i]);
-    state.edition = "mint";
+    state.edition = EDITIONS.indexOf(ed) > -1 ? ed : "mint";
     renderSheet();
     var d = $("#sheet");
     if (!d.open) { d.showModal(); document.body.classList.add("locked"); }
+    setHash("#" + C[i].no + "-" + state.edition);
     $(".sheet-close").focus();
   }
 
@@ -324,6 +340,7 @@
   function renderSheet() {
     var s = C[state.stamp];
     preload(s);
+    if ($("#sheet").open || document.body.classList.contains("locked")) setHash("#" + s.no + "-" + state.edition);
     var L = T[state.lang];
 
     var tabs = $(".ed-tabs");
@@ -407,7 +424,7 @@
 
     var d = $("#sheet");
     $(".sheet-close").addEventListener("click", closeSheet);
-    d.addEventListener("close", function () { document.body.classList.remove("locked"); });
+    d.addEventListener("close", function () { document.body.classList.remove("locked"); setHash(""); });
     d.addEventListener("cancel", function () { document.body.classList.remove("locked"); });
     d.addEventListener("click", function (e) { if (e.target === d) closeSheet(); });
     $(".sheet-prev").addEventListener("click", function () { if (state.stamp > 0) { state.stamp--; renderSheet(); } });
@@ -419,6 +436,11 @@
     });
 
     setLang(pickLang());
+    if (openFromHash()) {
+      var cat = $("#catalogue");
+      if (cat) window.scrollTo(0, cat.getBoundingClientRect().top + window.scrollY - 64);
+    }
+    window.addEventListener("hashchange", openFromHash);
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
