@@ -1,11 +1,12 @@
 (function () {
   "use strict";
 
-  var OPENSEA = "https://opensea.io/collection/postes-imperiales-des-enfers";
-  var CONTRACT = "https://opensea.io/item/ethereum/0x534345e8ecc874cf8986260e0caf4602e58b6187/";
-  /* OpenSea links switch. false = every OpenSea button shows "Under Construction" and does not link.
-     Set back to true when the collection is restored on OpenSea. */
-  var OPENSEA_OPEN = false;
+  /* Marketplace links (Rarible since 2026-10-04; OpenSea collection delisted 2026-10-01).
+     MARKET = collection page, TOKEN = item page base (+ token id). */
+  var MARKET = "https://rarible.com/collection/0x534345e8ecc874cf8986260e0caf4602e58b6187";
+  var TOKEN = "https://rarible.com/token/0x534345e8ecc874cf8986260e0caf4602e58b6187:";
+  /* Marketplace links switch. false = every marketplace button shows "Under Construction" and does not link. */
+  var MARKET_OPEN = true;
   var UNDER_CONSTRUCTION = "Under Construction";
   var LANGS = ["ja", "en", "fr", "de"];
 
@@ -19,9 +20,9 @@
       seriesLabel: "シリーズ", series: "欧州今昔百鬼拾遺",
       yearsLabel: "発行", years: "原版 1818年 ／ 復刻 2026年",
       issuesLabel: "発行点数", issues: "12種 × 3版 ＝ 36点",
-      ctaCatalogue: "目録をひらく", ctaOpensea: "OpenSeaで本切手を見る",
+      ctaCatalogue: "目録をひらく", ctaOpensea: "Raribleで本切手を見る",
       catalogueTitle: "切手目録",
-      catalogueNote: "掲載図版はすべて当局発行の見本刷り（SPECIMEN）です。本切手はOpenSeaにて頒布しています。",
+      catalogueNote: "掲載図版はすべて当局発行の見本刷り（SPECIMEN）です。本切手はRaribleにて頒布しています。",
       regularTitle: "正規発行", regularNote: "『地獄の辞典』上に序列と軍団数を持つ九柱の魔神 ／ No. 001–009",
       cinderellaTitle: "シンデレラ切手", cinderellaNote: "公式の位階を持たぬ使い魔と魔女 ／ No. A–C",
       edOriginal: "オリジナル", edMint: "未使用版", edUsed: "使用済み版",
@@ -38,8 +39,8 @@
       regular: "正規発行", cinderella: "シンデレラ切手", portrait: "人物版",
       special: "特印", specimen: "見本刷り",
       specimenPending: "見本刷り 準備中",
-      viewOnOpensea: "本切手をOpenSeaで見る",
-      viewEdition: function (ed) { return "この" + ed + "をOpenSeaで見る"; },
+      viewOnOpensea: "本切手をRaribleで見る",
+      viewEdition: function (ed) { return "この" + ed + "をRaribleで見る"; },
       prevStamp: "← 前の切手", nextStamp: "次の切手 →",
       pm: { new: "新月", full: "満月", solar: "日蝕", lunar: "月蝕" },
       pmFr: { new: "Nouvelle Lune", full: "Pleine Lune", solar: "Éclipse Solaire", lunar: "Éclipse Lunaire" },
@@ -55,9 +56,9 @@
       seriesLabel: "Series", series: "Europe's Hundred Demons, Old and New",
       yearsLabel: "Issued", years: "Original 1818 / Reissue 2026",
       issuesLabel: "Pieces", issues: "12 designs × 3 editions = 36 pieces",
-      ctaCatalogue: "Open the catalogue", ctaOpensea: "See the stamps on OpenSea",
+      ctaCatalogue: "Open the catalogue", ctaOpensea: "See the stamps on Rarible",
       catalogueTitle: "Stamp Catalogue",
-      catalogueNote: "Every plate shown here is a SPECIMEN issued by the Bureau. The stamps themselves are distributed on OpenSea.",
+      catalogueNote: "Every plate shown here is a SPECIMEN issued by the Bureau. The stamps themselves are distributed on Rarible.",
       regularTitle: "Regular Issue", regularNote: "Nine demons holding rank and legions in the Dictionnaire Infernal / No. 001–009",
       cinderellaTitle: "Cinderella Stamps", cinderellaNote: "Familiars and a witch without official rank / No. A–C",
       edOriginal: "Original Art", edMint: "Mint Edition", edUsed: "Used Edition",
@@ -74,8 +75,8 @@
       regular: "Regular Issue", cinderella: "Cinderella Stamp", portrait: "Portrait Issue",
       special: "Special Postmark", specimen: "Specimen",
       specimenPending: "Specimen in preparation",
-      viewOnOpensea: "See this stamp on OpenSea",
-      viewEdition: function (ed) { return "See the " + ed + " on OpenSea"; },
+      viewOnOpensea: "See this stamp on Rarible",
+      viewEdition: function (ed) { return "See the " + ed + " on Rarible"; },
       prevStamp: "← Previous stamp", nextStamp: "Next stamp →",
       pm: { new: "New Moon", full: "Full Moon", solar: "Solar Eclipse", lunar: "Lunar Eclipse" },
       pmFr: { new: "Nouvelle Lune", full: "Pleine Lune", solar: "Éclipse Solaire", lunar: "Éclipse Lunaire" },
@@ -91,9 +92,9 @@
       seriesLabel: "Série", series: "Cent démons d'Europe, d'hier et d'aujourd'hui",
       yearsLabel: "Émission", years: "Originale 1818 / Réédition 2026",
       issuesLabel: "Pièces", issues: "12 motifs × 3 éditions = 36 pièces",
-      ctaCatalogue: "Ouvrir le catalogue", ctaOpensea: "Voir les timbres sur OpenSea",
+      ctaCatalogue: "Ouvrir le catalogue", ctaOpensea: "Voir les timbres sur Rarible",
       catalogueTitle: "Catalogue des timbres",
-      catalogueNote: "Toutes les planches présentées ici sont des SPECIMEN émis par notre Administration. Les timbres eux-mêmes sont diffusés sur OpenSea.",
+      catalogueNote: "Toutes les planches présentées ici sont des SPECIMEN émis par notre Administration. Les timbres eux-mêmes sont diffusés sur Rarible.",
       regularTitle: "Émission ordinaire", regularNote: "Neuf démons pourvus d'un rang et de légions dans le Dictionnaire Infernal / No. 001–009",
       cinderellaTitle: "Vignettes (Cinderella)", cinderellaNote: "Familiers et sorcière sans rang officiel / No. A–C",
       edOriginal: "Œuvre originale", edMint: "Édition neuve", edUsed: "Édition oblitérée",
@@ -110,8 +111,8 @@
       regular: "Émission ordinaire", cinderella: "Vignette (Cinderella)", portrait: "Édition à portrait",
       special: "Oblitération spéciale", specimen: "Specimen",
       specimenPending: "Specimen en préparation",
-      viewOnOpensea: "Voir ce timbre sur OpenSea",
-      viewEdition: function (ed) { return (/^[ÉEŒO]/.test(ed) ? "Voir l\u2019" : "Voir la ") + ed + " sur OpenSea"; },
+      viewOnOpensea: "Voir ce timbre sur Rarible",
+      viewEdition: function (ed) { return (/^[ÉEŒO]/.test(ed) ? "Voir l\u2019" : "Voir la ") + ed + " sur Rarible"; },
       prevStamp: "← Timbre précédent", nextStamp: "Timbre suivant →",
       pm: { new: "Nouvelle Lune", full: "Pleine Lune", solar: "Éclipse Solaire", lunar: "Éclipse Lunaire" },
       pmFr: { new: "Nouvelle Lune", full: "Pleine Lune", solar: "Éclipse Solaire", lunar: "Éclipse Lunaire" },
@@ -127,9 +128,9 @@
       seriesLabel: "Serie", series: "Hundert Dämonen Europas, einst und jetzt",
       yearsLabel: "Ausgabe", years: "Original 1818 / Neuauflage 2026",
       issuesLabel: "Stückzahl", issues: "12 Motive × 3 Ausgaben = 36 Stücke",
-      ctaCatalogue: "Katalog öffnen", ctaOpensea: "Die Marken auf OpenSea ansehen",
+      ctaCatalogue: "Katalog öffnen", ctaOpensea: "Die Marken auf Rarible ansehen",
       catalogueTitle: "Briefmarkenkatalog",
-      catalogueNote: "Alle hier gezeigten Abbildungen sind von unserer Behörde ausgegebene SPECIMEN. Die Marken selbst werden auf OpenSea ausgegeben.",
+      catalogueNote: "Alle hier gezeigten Abbildungen sind von unserer Behörde ausgegebene SPECIMEN. Die Marken selbst werden auf Rarible ausgegeben.",
       regularTitle: "Regelausgabe", regularNote: "Neun Dämonen mit Rang und Legionen im Dictionnaire Infernal / Nr. 001–009",
       cinderellaTitle: "Cinderella-Marken", cinderellaNote: "Vertraute und eine Hexe ohne offiziellen Rang / Nr. A–C",
       edOriginal: "Originalwerk", edMint: "Erstausgabe", edUsed: "Gestempelte Ausgabe",
@@ -146,8 +147,8 @@
       regular: "Regelausgabe", cinderella: "Cinderella-Marke", portrait: "Porträtausgabe",
       special: "Sonderstempel", specimen: "Specimen",
       specimenPending: "Specimen in Vorbereitung",
-      viewOnOpensea: "Diese Marke auf OpenSea ansehen",
-      viewEdition: function (ed) { return (ed === "Originalwerk" ? "Das " : "Die ") + ed.replace("Gestempelte", "gestempelte") + " auf OpenSea ansehen"; },
+      viewOnOpensea: "Diese Marke auf Rarible ansehen",
+      viewEdition: function (ed) { return (ed === "Originalwerk" ? "Das " : "Die ") + ed.replace("Gestempelte", "gestempelte") + " auf Rarible ansehen"; },
       prevStamp: "← Vorige Marke", nextStamp: "Nächste Marke →",
       pm: { new: "Neumond", full: "Vollmond", solar: "Sonnenfinsternis", lunar: "Mondfinsternis" },
       pmFr: { new: "Nouvelle Lune", full: "Pleine Lune", solar: "Éclipse Solaire", lunar: "Éclipse Lunaire" },
@@ -182,11 +183,11 @@
     a.textContent = UNDER_CONSTRUCTION;
   }
   function applyOpenSeaState() {
-    if (OPENSEA_OPEN) return;
+    if (MARKET_OPEN) return;
     closeLink($("#osCollection"));
     $$(".foot-links a").forEach(function (a) {
       closeLink(a);
-      a.textContent = "OpenSea — " + UNDER_CONSTRUCTION;
+      a.textContent = "Rarible — " + UNDER_CONSTRUCTION;
     });
   }
   function $(s, r) { return (r || document).querySelector(s); }
@@ -399,8 +400,9 @@
 
     var os = $(".sheet-os");
     os.textContent = L.viewEdition(L[ED_LABEL[state.edition]]);
-    os.href = s.token && s.token[state.edition] ? CONTRACT + s.token[state.edition] : OPENSEA;
-    if (!OPENSEA_OPEN) closeLink(os);
+    os.href = s.token && s.token[state.edition] ? TOKEN + s.token[state.edition] : MARKET;
+    os.target = "_blank";
+    if (!MARKET_OPEN) closeLink(os);
 
     var prev = $(".sheet-prev"), next = $(".sheet-next");
     prev.textContent = L.prevStamp; next.textContent = L.nextStamp;

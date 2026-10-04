@@ -1,7 +1,8 @@
 # 地獄帝国郵政局 — Postes Impériales des Enfers
 
 地獄帝国郵政局の沿革と切手目録（日本語・English・Français・Deutsch）。
-OpenSea コレクション：https://opensea.io/collection/postes-imperiales-des-enfers
+販売：Rarible https://rarible.com/collection/0x534345e8ecc874cf8986260e0caf4602e58b6187
+（OpenSea のコレクションは 2026年10月1日に表示停止）
 
 ## 構成
 
