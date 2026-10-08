@@ -17,6 +17,19 @@
 | `images/postmarks/` | 消印 4種 |
 | `images/emblem.png` | 地獄帝国郵政局 紋章 |
 
+## 切手ごとの入口の頁（SNS 共有用）
+
+X などに貼るときは、目録の `#B-mint` ではなく、こちらの住所を使うと、その切手の図版がプレビューに出ます。開くとすぐ目録の該当頁へ移ります。
+
+```
+https://naruruel.github.io/postes-imperiales-des-enfers/s/{番号}-{版}/
+番号：001〜009、A、B、C　　版：original / mint / used
+例：…/s/B-mint/　…/s/009-used/
+```
+
+- 頁は `s/`、プレビュー用の絵（1200×630）は `images/share/` に入っています。
+- 見本刷り図版を差し替えたときは `python3 tools/make_share_pages.py` を実行して作り直してください。
+
 ## 見本刷り図版の名前
 
 図版を差し替えるときは、同じ名前で上書きしてください（一覧の縮小版 `thumb/{通し番号}_mint.jpg` も合わせて）。
